@@ -65,31 +65,31 @@ export function Residences() {
         {/* Scroll Container */}
         <div 
           ref={scrollRef} 
-          className="flex flex-col md:flex-row gap-8 md:gap-12 px-6 md:px-12 md:h-[60vh] md:w-max md:items-center mt-8 md:mt-16"
+          className="flex flex-row gap-8 md:gap-16 px-6 md:px-12 h-[60vh] md:h-[75vh] w-max items-center mt-8 md:mt-16"
         >
           {residencesData.map((residence, index) => (
             <Link 
               key={residence.id} 
               href={`/residences/${residence.id}`}
-              className="group relative w-full md:w-[45vw] h-[60vh] md:h-full flex-shrink-0 block overflow-hidden cursor-pointer"
-              data-cursor-text="Explore"
+              className="group relative w-[85vw] md:w-[80vw] h-full flex-shrink-0 block overflow-hidden cursor-pointer"
+              data-cursor-text="EXPLORE"
             >
               <div className="absolute inset-0 w-full h-full">
                 <Image 
                   src={residence.heroImage}
                   alt={residence.name}
                   fill sizes="100vw"
-                  className="object-cover transition-transform duration-[1.5s] ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:scale-110"
+                  className="object-cover transition-transform duration-[1.5s] ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-[#111110]/40 transition-opacity duration-700 group-hover:opacity-0" />
+                <div className="absolute inset-0 bg-[#111110]/20 transition-opacity duration-700 group-hover:opacity-0" />
               </div>
               
-              <div className="absolute inset-0 p-8 md:p-12 flex flex-col justify-between z-10 transition-opacity duration-500 group-hover:opacity-0">
+              <div className="absolute inset-0 p-6 md:p-12 flex flex-col justify-between z-10 pointer-events-none">
                 <div className="flex justify-between items-start">
-                  <span className="text-meta border border-warm-white/30 px-4 py-2 rounded-full backdrop-blur-sm">
-                    0{index + 1}
+                  <span className="text-meta border border-warm-white/20 px-4 py-2 rounded-full backdrop-blur-md">
+                    0{index + 1} / 0{residencesData.length}
                   </span>
-                  <div className="text-right text-meta flex flex-col gap-1 opacity-80 backdrop-blur-sm bg-[#111110]/20 p-4 rounded-lg border border-warm-white/10">
+                  <div className="text-right text-meta flex flex-col gap-1 opacity-90 backdrop-blur-md bg-[#111110]/30 p-4 rounded-lg border border-warm-white/10 hidden md:flex">
                     <span>{residence.bedrooms} Bedrooms</span>
                     <span>{residence.area}</span>
                     <span>{residence.terrace}</span>
@@ -97,9 +97,12 @@ export function Residences() {
                 </div>
                 
                 <div className="flex justify-between items-end">
-                  <h3 className="text-4xl md:text-6xl font-serif tracking-tighter">
+                  <h3 className="text-4xl md:text-huge font-serif tracking-tighter leading-none font-light group-hover:italic transition-all duration-500">
                     {residence.name}
                   </h3>
+                  <div className="w-12 h-12 rounded-full border border-warm-white flex items-center justify-center opacity-0 transform translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500">
+                    <ArrowRight className="w-5 h-5" />
+                  </div>
                 </div>
               </div>
             </Link>

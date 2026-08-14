@@ -11,8 +11,10 @@ const navLinks = [
   { num: '03', label: 'The Concept', href: '/#concept' },
   { num: '04', label: 'Residences', href: '/#residences' },
   { num: '05', label: 'Amenities', href: '/#amenities' },
-  { num: '06', label: 'Gallery', href: '/#gallery' },
-  { num: '07', label: 'Contact', href: '/#contact' },
+  { num: '06', label: 'The Space', href: '/#space' },
+  { num: '07', label: 'Architecture', href: '/#architecture' },
+  { num: '08', label: 'Gallery', href: '/#gallery' },
+  { num: '09', label: 'Contact', href: '/#contact' },
 ];
 
 export function Navbar() {
@@ -65,10 +67,10 @@ export function Navbar() {
 
   return (
     <>
-      <header className="fixed top-0 left-0 w-full z-50 px-6 py-6 md:px-12 md:py-8 mix-blend-difference text-warm-white">
-        <div className="flex items-center justify-between">
+      <header className="fixed top-0 left-0 w-full z-50 px-6 py-6 md:px-12 md:py-8 mix-blend-difference text-warm-white pointer-events-none">
+        <div className="flex items-center justify-between pointer-events-auto">
           <div className="flex-1">
-            <Link href="/" className="text-xl md:text-2xl font-serif tracking-widest uppercase">
+            <Link href="/" className="text-xl md:text-2xl font-serif tracking-widest uppercase" data-cursor-text="HOME">
               Alora
             </Link>
           </div>
@@ -82,9 +84,10 @@ export function Navbar() {
           <div className="flex-1 flex justify-end">
             <button 
               onClick={() => setIsOpen(true)}
-              className="text-meta hover:opacity-70 transition-opacity uppercase"
+              className="text-meta hover:opacity-70 transition-opacity uppercase flex items-center gap-2"
+              data-cursor-text="OPEN"
             >
-              Menu
+              <span className="opacity-50">00</span> MENU
             </button>
           </div>
         </div>
@@ -93,7 +96,7 @@ export function Navbar() {
       {/* Fullscreen Overlay */}
       <div 
         ref={overlayRef}
-        className="fixed inset-0 z-[60] bg-[#111110] text-warm-white flex flex-col justify-between p-6 md:p-12 overflow-hidden"
+        className="fixed inset-0 z-[60] bg-warm-white text-primary-dark flex flex-col justify-between p-6 md:p-12 overflow-hidden"
         style={{ clipPath: 'polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)' }}
       >
         <div className="flex justify-between items-center w-full z-10 relative">
@@ -102,9 +105,10 @@ export function Navbar() {
           </Link>
           <button 
             onClick={() => setIsOpen(false)}
-            className="text-meta hover:opacity-70 transition-opacity uppercase"
+            className="text-meta hover:opacity-70 transition-opacity uppercase flex items-center gap-2"
+            data-cursor-text="CLOSE"
           >
-            Close
+            <span className="opacity-50">00</span> CLOSE
           </button>
         </div>
 
@@ -119,11 +123,12 @@ export function Navbar() {
                     onMouseEnter={() => handleMouseEnter(index)}
                     onMouseLeave={handleMouseLeave}
                     className="nav-item-link flex items-baseline gap-4 md:gap-8 group block w-max py-2 md:py-0"
+                    data-cursor-text="VIEW"
                   >
                     <span className="text-xs md:text-sm font-sans tracking-widest uppercase opacity-40 font-light mb-2 md:mb-6">
                       {link.num}
                     </span>
-                    <span className="text-huge font-serif uppercase tracking-tighter hover:italic transition-all duration-300">
+                    <span className="text-huge font-serif uppercase tracking-tighter hover:italic transition-all duration-300 font-light">
                       {link.label}
                     </span>
                   </Link>

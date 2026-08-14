@@ -29,12 +29,24 @@ export function Hero() {
     
     gsap.to('.hero-image', {
       yPercent: 15,
-      scale: 1.1,
+      scale: 1.08,
       ease: 'none',
       scrollTrigger: {
         trigger: '.hero-section',
         start: 'top top',
         end: 'bottom top',
+        scrub: true
+      }
+    });
+
+    gsap.to('.hero-text-wrap', {
+      y: -150,
+      opacity: 0,
+      ease: 'power2.in',
+      scrollTrigger: {
+        trigger: '.hero-section',
+        start: 'top top',
+        end: 'bottom 40%',
         scrub: true
       }
     });
