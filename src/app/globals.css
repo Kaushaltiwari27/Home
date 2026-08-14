@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary-dark: #171715;
+  --color-secondary-dark: #292824;
+  --color-warm-white: #f8f6f1;
+  --color-muted-beige: #d8d0c2;
+  --color-accent: #a59a86;
+
+  --font-sans: var(--font-inter), sans-serif;
+  --font-serif: var(--font-cormorant), serif;
+}
+
+:root {
+  --background: #f2efe8; /* Main background color */
+  --foreground: #171715; /* Primary dark for text */
+}
+
+/* Ensure body respects custom fonts and colors */
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+}
+
+/* Custom Utilities for Premium Typography */
+.text-huge {
+  font-size: clamp(2.5rem, 12vw, 9rem);
+  line-height: 0.9;
+}
+
+.text-meta {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+}
+
+/* Custom Selection */
+::selection {
+  background-color: var(--color-accent);
+  color: #fff;
+}
+
+/* Utility for text balance */
+.text-balance {
+  text-wrap: balance;
+}
+
+/* Hide scrollbar for clean aesthetic */
+::-webkit-scrollbar {
+  display: none;
+}
+html {
+  scrollbar-width: none;
+}
+
+/* GSAP utilities */
+.clip-path-reveal {
+  clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
+}
