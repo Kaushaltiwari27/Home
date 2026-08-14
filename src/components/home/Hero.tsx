@@ -28,26 +28,26 @@ export function Hero() {
     gsap.registerPlugin(ScrollTrigger);
     
     gsap.to('.hero-image', {
-      yPercent: 15,
-      scale: 1.08,
-      ease: 'none',
+      yPercent: 30,
+      scale: 1.15,
+      ease: 'power1.inOut',
       scrollTrigger: {
         trigger: '.hero-section',
         start: 'top top',
         end: 'bottom top',
-        scrub: true
+        scrub: 1.5
       }
     });
 
     gsap.to('.hero-text-wrap', {
-      y: -150,
+      y: -200,
       opacity: 0,
       ease: 'power2.in',
       scrollTrigger: {
         trigger: '.hero-section',
         start: 'top top',
-        end: 'bottom 40%',
-        scrub: true
+        end: 'bottom 20%',
+        scrub: 1
       }
     });
 

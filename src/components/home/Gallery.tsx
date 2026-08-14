@@ -118,20 +118,18 @@ export function Gallery() {
             </div>
           </div>
 
-          {/* Navigation Controls */}
-          <div className="absolute inset-0 pointer-events-none flex items-center justify-between px-4 md:px-12 z-10">
-            <button 
+          {/* Invisible Navigation Halves */}
+          <div className="absolute inset-0 z-20 flex">
+            <div 
+              className="flex-1 cursor-none"
               onClick={prevImage}
-              className="pointer-events-auto w-12 h-12 md:w-16 md:h-16 rounded-full border border-warm-white/20 flex items-center justify-center hover:bg-warm-white hover:text-primary-dark transition-colors backdrop-blur-sm bg-primary-dark/50"
-            >
-              <ChevronLeft size={24} strokeWidth={1} />
-            </button>
-            <button 
+              data-cursor-text="PREV"
+            />
+            <div 
+              className="flex-1 cursor-none"
               onClick={nextImage}
-              className="pointer-events-auto w-12 h-12 md:w-16 md:h-16 rounded-full border border-warm-white/20 flex items-center justify-center hover:bg-warm-white hover:text-primary-dark transition-colors backdrop-blur-sm bg-primary-dark/50"
-            >
-              <ChevronRight size={24} strokeWidth={1} />
-            </button>
+              data-cursor-text="NEXT"
+            />
           </div>
         </div>
       )}
